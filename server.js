@@ -12,7 +12,7 @@ app.use(cors());
 app.post('/api/sighting', SightingCtrl.create);
 app.get('/api/sighting', SightingCtrl.read);
 app.put('/api/sighting/:id', SightingCtrl.update);
-app.delete('/api/sighting', SightingCtrl.delete);
+app.delete('/api/sighting/:id', SightingCtrl.remove);
 
 
 

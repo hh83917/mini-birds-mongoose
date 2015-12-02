@@ -16,9 +16,22 @@ module.exports = {
     });
   },
   update: function(req, res) {
-
+    Sighting.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+      if(!err) res.status(200).end();
+    });
   },
-  delete: function(req, res) {
-
+  remove: function(req, res) {
+    Sighting.remove({_id: req.params.id})
+    .then(function(result) {
+      return res.status(200).end();
+    });
   }
 };
+
+
+// update: function(req, res) {
+//     Sighting.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+//       if (err) return res.status(500).send(err);
+//       else res.send(result);
+//     });
+//   },
